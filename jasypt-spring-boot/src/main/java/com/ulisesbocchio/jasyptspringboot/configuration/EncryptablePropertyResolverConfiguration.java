@@ -30,13 +30,13 @@ import java.util.stream.Collectors;
 public class EncryptablePropertyResolverConfiguration {
 
     private static final String ENCRYPTOR_BEAN_PROPERTY = "jasypt.encryptor.bean";
-    private static final String ENCRYPTOR_BEAN_PLACEHOLDER = String.format("${%s:jasyptStringEncryptor}", ENCRYPTOR_BEAN_PROPERTY);
+    private static final String ENCRYPTOR_BEAN_PLACEHOLDER = "${%s:jasyptStringEncryptor}".formatted(ENCRYPTOR_BEAN_PROPERTY);
     private static final String DETECTOR_BEAN_PROPERTY = "jasypt.encryptor.property.detector-bean";
-    private static final String DETECTOR_BEAN_PLACEHOLDER = String.format("${%s:encryptablePropertyDetector}", DETECTOR_BEAN_PROPERTY);
+    private static final String DETECTOR_BEAN_PLACEHOLDER = "${%s:encryptablePropertyDetector}".formatted(DETECTOR_BEAN_PROPERTY);
     private static final String RESOLVER_BEAN_PROPERTY = "jasypt.encryptor.property.resolver-bean";
-    private static final String RESOLVER_BEAN_PLACEHOLDER = String.format("${%s:encryptablePropertyResolver}", RESOLVER_BEAN_PROPERTY);
+    private static final String RESOLVER_BEAN_PLACEHOLDER = "${%s:encryptablePropertyResolver}".formatted(RESOLVER_BEAN_PROPERTY);
     private static final String FILTER_BEAN_PROPERTY = "jasypt.encryptor.property.filter-bean";
-    private static final String FILTER_BEAN_PLACEHOLDER = String.format("${%s:encryptablePropertyFilter}", FILTER_BEAN_PROPERTY);
+    private static final String FILTER_BEAN_PLACEHOLDER = "${%s:encryptablePropertyFilter}".formatted(FILTER_BEAN_PROPERTY);
 
     private static final String ENCRYPTOR_BEAN_NAME = "lazyJasyptStringEncryptor";
     private static final String DETECTOR_BEAN_NAME = "lazyEncryptablePropertyDetector";

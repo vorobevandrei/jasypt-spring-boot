@@ -97,11 +97,9 @@ public class RefreshScopeRefreshedEventListener implements ApplicationListener<A
 
     @SuppressWarnings("rawtypes")
     private void refreshPropertySource(PropertySource<?> propertySource) {
-        if (propertySource instanceof CompositePropertySource) {
-            CompositePropertySource cps = (CompositePropertySource) propertySource;
+        if (propertySource instanceof CompositePropertySource cps) {
             cps.getPropertySources().forEach(this::refreshPropertySource);
-        } else if (propertySource instanceof EncryptablePropertySource) {
-            EncryptablePropertySource eps = (EncryptablePropertySource) propertySource;
+        } else if (propertySource instanceof EncryptablePropertySource eps) {
             eps.refresh();
         }
     }

@@ -8,6 +8,7 @@ package com.ulisesbocchio.jasyptspringboot.exception;
  */
 public class DecryptionException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**

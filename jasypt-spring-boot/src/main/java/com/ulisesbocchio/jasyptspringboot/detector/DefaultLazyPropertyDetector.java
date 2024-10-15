@@ -39,7 +39,7 @@ public class DefaultLazyPropertyDetector implements EncryptablePropertyDetector 
                         .map(tap(bean -> log.info("Found Custom Detector Bean {} with name: {}", bean, customDetectorBeanName)))
                         .orElseGet(() -> {
                             if(isCustom) {
-                                throw new IllegalStateException(String.format("Property Detector custom Bean not found with name '%s'", customDetectorBeanName));
+                                throw new IllegalStateException("Property Detector custom Bean not found with name '%s'".formatted(customDetectorBeanName));
                             }
                             log.info("Property Detector custom Bean not found with name '{}'. Initializing Default Property Detector", customDetectorBeanName);
                             return createDefault(environment);

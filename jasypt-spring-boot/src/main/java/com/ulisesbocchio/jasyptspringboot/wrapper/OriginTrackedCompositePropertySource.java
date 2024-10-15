@@ -27,8 +27,7 @@ public class OriginTrackedCompositePropertySource extends CompositePropertySourc
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	public Origin getOrigin(String name) {
 		for (PropertySource<?> propertySource : getPropertySources()) {
-			if (propertySource instanceof OriginLookup) {
-				OriginLookup lookup = (OriginLookup) propertySource;
+			if (propertySource instanceof OriginLookup lookup) {
 				Origin origin = lookup.getOrigin(name);
 				if (origin != null) {
 					return origin;

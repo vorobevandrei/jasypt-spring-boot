@@ -100,7 +100,7 @@ public class EncryptablePropertySourceBeanFactoryPostProcessor implements BeanFa
             Resource resource = resourceLoader.getResource(resolvedLocation);
             if (!resource.exists()) {
                 if (!ignoreResourceNotFound) {
-                    throw new IllegalStateException(String.format("Encryptable Property Source '%s' from location: %s Not Found", name, resolvedLocation));
+                    throw new IllegalStateException("Encryptable Property Source '%s' from location: %s Not Found".formatted(name, resolvedLocation));
                 } else {
                     log.info("Ignoring NOT FOUND Encryptable Property Source '{}' from locations: {}", name, resolvedLocation);
                 }

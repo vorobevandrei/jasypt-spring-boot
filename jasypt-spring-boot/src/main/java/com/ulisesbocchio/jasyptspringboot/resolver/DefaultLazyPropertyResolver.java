@@ -41,7 +41,7 @@ public class DefaultLazyPropertyResolver implements EncryptablePropertyResolver 
                         .map(tap(bean -> log.info("Found Custom Resolver Bean {} with name: {}", bean, customResolverBeanName)))
                         .orElseGet(() -> {
                             if (isCustom) {
-                                throw new IllegalStateException(String.format("Property Resolver custom Bean not found with name '%s'", customResolverBeanName));
+                                throw new IllegalStateException("Property Resolver custom Bean not found with name '%s'".formatted(customResolverBeanName));
                             }
                             log.info("Property Resolver custom Bean not found with name '{}'. Initializing Default Property Resolver", customResolverBeanName);
                             return createDefault(propertyDetector, encryptor, environment);

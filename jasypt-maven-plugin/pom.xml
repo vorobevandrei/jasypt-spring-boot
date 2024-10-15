@@ -13,6 +13,7 @@
     <packaging>maven-plugin</packaging>
 
     <properties>
+        <java.version>17</java.version>
         <maven.api.version>3.8.6</maven.api.version>
         <maven.project.version>2.2.1</maven.project.version>
         <maven-plugin-annotations.version>3.3</maven-plugin-annotations.version>

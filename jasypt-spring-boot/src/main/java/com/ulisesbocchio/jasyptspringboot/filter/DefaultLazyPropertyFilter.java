@@ -39,7 +39,7 @@ public class DefaultLazyPropertyFilter implements EncryptablePropertyFilter {
                         .map(tap(bean -> log.info("Found Custom Filter Bean {} with name: {}", bean, customFilterBeanName)))
                         .orElseGet(() -> {
                             if (isCustom) {
-                                throw new IllegalStateException(String.format("Property Filter custom Bean not found with name '%s'", customFilterBeanName));
+                                throw new IllegalStateException("Property Filter custom Bean not found with name '%s'".formatted(customFilterBeanName));
                             }
 
                             log.info("Property Filter custom Bean not found with name '{}'. Initializing Default Property Filter", customFilterBeanName);

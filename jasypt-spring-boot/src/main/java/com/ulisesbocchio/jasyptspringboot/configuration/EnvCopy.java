@@ -28,14 +28,14 @@ public class EnvCopy {
     public EnvCopy(final ConfigurableEnvironment environment) {
         copy = new StandardEnvironment();
         Optional
-                .ofNullable(environment instanceof EncryptableEnvironment ? ((EncryptableEnvironment) environment).getOriginalPropertySources() : environment.getPropertySources())
+                .ofNullable(environment instanceof EncryptableEnvironment ee ? ee.getOriginalPropertySources() : environment.getPropertySources())
                 .ifPresent(sources -> sources.forEach(this::addLast));
     }
 
     @SuppressWarnings({"rawtypes"})
     private PropertySource<?> getOriginal(PropertySource<?> propertySource) {
-        return propertySource instanceof EncryptablePropertySource
-                ? ((EncryptablePropertySource) propertySource).getDelegate()
+        return propertySource instanceof EncryptablePropertySource eps
+                ? eps.getDelegate()
                 : propertySource;
     }
 

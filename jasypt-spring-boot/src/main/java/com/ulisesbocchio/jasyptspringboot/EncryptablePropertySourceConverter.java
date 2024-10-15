@@ -72,9 +72,9 @@ public class EncryptablePropertySourceConverter {
             if (PropertySource.class.isAssignableFrom(clazz)) {
                 return (Class<PropertySource<?>>) clazz;
             }
-            throw new IllegalArgumentException(String.format("Invalid jasypt.encryptor.skip-property-sources: Class %s does not implement %s", className, PropertySource.class.getName()));
+            throw new IllegalArgumentException("Invalid jasypt.encryptor.skip-property-sources: Class %s does not implement %s".formatted(className, PropertySource.class.getName()));
         } catch (ClassNotFoundException e) {
-            throw new IllegalArgumentException(String.format("Invalid jasypt.encryptor.skip-property-sources: Class %s not found", className), e);
+            throw new IllegalArgumentException("Invalid jasypt.encryptor.skip-property-sources: Class %s not found".formatted(className), e);
         }
     }
 
@@ -171,12 +171,12 @@ public class EncryptablePropertySourceConverter {
         PropertySource<T> encryptablePropertySource;
         if (needsProxyAnyway(propertySource)) {
             encryptablePropertySource = proxyPropertySource(propertySource);
-        } else if (propertySource instanceof SystemEnvironmentPropertySource) {
-            encryptablePropertySource = (PropertySource<T>) new EncryptableSystemEnvironmentPropertySourceWrapper((SystemEnvironmentPropertySource) propertySource, propertyResolver, propertyFilter);
-        } else if (propertySource instanceof MapPropertySource) {
-            encryptablePropertySource = (PropertySource<T>) new EncryptableMapPropertySourceWrapper((MapPropertySource) propertySource, propertyResolver, propertyFilter);
-        } else if (propertySource instanceof EnumerablePropertySource) {
-            encryptablePropertySource = new EncryptableEnumerablePropertySourceWrapper<>((EnumerablePropertySource) propertySource, propertyResolver, propertyFilter);
+        } else if (propertySource instanceof SystemEnvironmentPropertySource source) {
+            encryptablePropertySource = (PropertySource<T>) new EncryptableSystemEnvironmentPropertySourceWrapper(source, propertyResolver, propertyFilter);
+        } else if (propertySource instanceof MapPropertySource source) {
+            encryptablePropertySource = (PropertySource<T>) new EncryptableMapPropertySourceWrapper(source, propertyResolver, propertyFilter);
+        } else if (propertySource instanceof EnumerablePropertySource source) {
+            encryptablePropertySource = new EncryptableEnumerablePropertySourceWrapper<>(source, propertyResolver, propertyFilter);
         } else {
             encryptablePropertySource = new EncryptablePropertySourceWrapper<>(propertySource, propertyResolver, propertyFilter);
         }

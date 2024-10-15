@@ -41,7 +41,7 @@ public class DefaultLazyEncryptor implements StringEncryptor {
                         .map(tap(bean -> log.info("Found Custom Encryptor Bean {} with name: {}", bean, customEncryptorBeanName)))
                         .orElseGet(() -> {
                             if (isCustom) {
-                                throw new IllegalStateException(String.format("String Encryptor custom Bean not found with name '%s'", customEncryptorBeanName));
+                                throw new IllegalStateException("String Encryptor custom Bean not found with name '%s'".formatted(customEncryptorBeanName));
                             }
                             log.info("String Encryptor custom Bean not found with name '{}'. Initializing Default String Encryptor", customEncryptorBeanName);
                             return createDefault(e);

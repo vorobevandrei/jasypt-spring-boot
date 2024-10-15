@@ -108,7 +108,7 @@ public class StringEncryptorBuilder {
     private <T> T getRequired(Supplier<T> supplier, String key) {
         T value = supplier.get();
         if (value == null) {
-            throw new IllegalStateException(String.format("Required Encryption configuration property missing: %s", key));
+            throw new IllegalStateException("Required Encryption configuration property missing: %s".formatted(key));
         }
         return value;
     }

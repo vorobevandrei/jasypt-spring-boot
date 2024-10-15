@@ -11,6 +11,9 @@
     <packaging>jar</packaging>
     <name>Jasypt Spring Boot Starter</name>
     <description>Jasypt Spring Boot Starter</description>
+    <properties>
+        <java.version>17</java.version>
+    </properties>
 
     <dependencies>
         <dependency>
