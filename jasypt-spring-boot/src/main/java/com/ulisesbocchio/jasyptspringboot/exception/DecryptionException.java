@@ -1,5 +1,7 @@
 package com.ulisesbocchio.jasyptspringboot.exception;
 
+import java.io.Serial;
+
 /**
  * <p>DecryptionException class.</p>
  *
